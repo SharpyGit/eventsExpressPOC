@@ -1,10 +1,8 @@
 const { Router } = require('express')
 const express = require('express')
-
+const eventCtrl = require("../controllers/event-ctrl")
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.status(200).send({message: "Successful get request at event-router.js" })
-})
+router.get('/', eventCtrl.getEvents)
 
 module.exports = router
