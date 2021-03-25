@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
-//const mongoDbUri = "mongodb+srv://eventdbcluster.juzve.mongodb.net/TdpEventCalendar?retryWrites=true&w=majority";
-const mongoDbUri = "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false";
+const mongoDbUri = "mongodb+srv://eventdbcluster.juzve.mongodb.net/TdpEventCalendar?retryWrites=true&w=majority";
+const connectionParameters = {
+    dbName: 'TdpEventCalendar',
+    user: 'David',
+    pass: 'david',
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+    }
 
-mongoose.connect(mongoDbUri, {useNewUrlParser: true,useUnifiedTopology: true})
+mongoose.connect(mongoDbUri, connectionParameters)
         .then(()=> console.log("mongodb connected"))
         .catch(error => {
             console.error("Unable to connect to MongoDb cluster, error message is: ", error.message)
